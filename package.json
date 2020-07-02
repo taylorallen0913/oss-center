@@ -1,11 +1,12 @@
 {
-  "name": "with-typescript",
+  "name": "oss-center",
   "version": "1.0.0",
+  "license": "MIT",
   "scripts": {
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "type-check": "tsc"
+    "tsc": "tsc"
   },
   "dependencies": {
     "next": "latest",
@@ -17,6 +18,5 @@
     "@types/react": "^16.9.16",
     "@types/react-dom": "^16.9.4",
     "typescript": "3.7.3"
-  },
-  "license": "ISC"
+  }
 }
