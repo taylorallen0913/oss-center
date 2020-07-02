@@ -1,7 +1,9 @@
-require('infima/dist/css/default/default.css');
 import withApollo from "../lib/withApollo";
 import { AppProps } from "next/app";
 import Layout from '../components/Layout';
+
+import 'infima/dist/css/default/default.css';
+import './App.css';
 
 const AppWrapper = ({ Component, pageProps }: AppProps) => {
     return (

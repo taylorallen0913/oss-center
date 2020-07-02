@@ -1,7 +1,6 @@
 import React from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import gql from 'graphql-tag';
-import Layout from '../components/Layout'
 
 const TEST_QUERY = gql`
 query { 
