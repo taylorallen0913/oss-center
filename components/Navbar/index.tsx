@@ -7,8 +7,10 @@ const Navbar = () => {
         <nav className="navbar navbar--dark">
             <div className="navbar__inner">
                 <div className="navbar__items">
-                    <a className={clsx("navbar__brand", styles.navbarHeaderText)}>OSS Center</a>
-                    <Link href="">
+                    <Link href="/">
+                        <a className={clsx("navbar__brand", styles.navbarHeaderText)}>OSS Center</a>
+                    </Link>
+                    <Link href="/browse">
                         <a className="navbar__item navbar__link">
                             Browse
                         </a>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import gql from 'graphql-tag';
-import Navbar from '../components/Navbar'
+import Layout from '../components/Layout'
 
 const TEST_QUERY = gql`
 query { 
@@ -16,9 +16,11 @@ const App = () => {
 
   data ? console.log(data) : null;
 
-  return <div>
-    <Navbar />
-  </div>
+  return (
+    <div>
+      <h1>Hello world</h1>
+    </div>
+  )
 }
 
 export default App;
