@@ -19,7 +19,7 @@ interface Options {
   getToken: () => string;
 }
 
-function create(initialState: any, { getToken }: Options) {
+const create = (initialState: any, { getToken }: Options) => {
   const httpLink = createHttpLink({
     uri: 'https://api.github.com/graphql',
     credentials: 'include',
@@ -42,9 +42,9 @@ function create(initialState: any, { getToken }: Options) {
     link: authLink.concat(httpLink),
     cache: new InMemoryCache().restore(initialState || {}),
   });
-}
+};
 
-export default function initApollo(initialState: any, options: Options) {
+const initApollo = (initialState: any, options: Options) => {
   // Make sure to create a new client for every server-side request so that data
   // isn't shared between connections (which would be bad)
   if (!isBrowser) {
@@ -57,4 +57,6 @@ export default function initApollo(initialState: any, options: Options) {
   }
 
   return apolloClient;
-}
+};
+
+export default initApollo;
