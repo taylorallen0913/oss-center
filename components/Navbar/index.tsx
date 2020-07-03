@@ -10,6 +10,11 @@ const Navbar = () => {
                     <Link href="/">
                         <a className={clsx("navbar__brand", styles.navbarHeaderText)}>OSS Center</a>
                     </Link>
+                    <Link href="/discover">
+                        <a className="navbar__item navbar__link">
+                            Discover
+                        </a>
+                    </Link>
                     <Link href="/browse">
                         <a className="navbar__item navbar__link">
                             Browse

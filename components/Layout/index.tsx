@@ -1,14 +1,20 @@
 import Navbar from '../Navbar';
+import Footer from '../Footer';
+
+import styles from './styles.module.css'
 
 interface Props {
-    children: React.ReactElement
-}
+    children: React.ReactElement;
+};
 
 const Layout = ({ children }: Props) => {
     return (
         <div>
             <Navbar />
-            {children}
+            <div className={styles.dark}>
+                {children}
+            </div>
+            <Footer />
         </div>
     )
 }
