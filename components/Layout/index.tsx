@@ -1,7 +1,7 @@
 import Navbar from '../Navbar';
 import Footer from '../Footer';
 
-import styles from './styles.module.css'
+import styles from './styles.module.css';
 
 interface Props {
     children: React.ReactElement;
@@ -16,7 +16,7 @@ const Layout = ({ children }: Props) => {
             </div>
             <Footer />
         </div>
-    )
-}
+    );
+};
 
 export default Layout;

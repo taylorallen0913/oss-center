@@ -1,6 +1,6 @@
-import Link from 'next/link'
-import clsx from 'clsx'
-import styles from './styles.module.css'
+import Link from 'next/link';
+import clsx from 'clsx';
+import styles from './styles.module.css';
 
 const Navbar = () => {
     return (
@@ -30,7 +30,7 @@ const Navbar = () => {
                 </div>
             </div>
         </nav>
-    )
-}
+    );
+};
 
 export default Navbar;

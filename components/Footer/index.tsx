@@ -17,7 +17,7 @@ const Footer = () => {
                 <div>Copyright © 2020 Taylor Allen</div>
             </div>
         </footer>
-    )
-}
+    );
+};
 
 export default Footer;

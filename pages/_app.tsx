@@ -11,6 +11,6 @@ const AppWrapper = ({ Component, pageProps }: AppProps) => {
             <Component {...pageProps} />
         </Layout>
     );
-}
+};
 
-export default withApollo(AppWrapper);
+export default withApollo(AppWrapper); 

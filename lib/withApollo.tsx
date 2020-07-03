@@ -1,23 +1,23 @@
-import Head from 'next/head'
-import { ApolloProvider } from '@apollo/react-hooks'
-import { ApolloClient } from 'apollo-client'
-import { InMemoryCache } from 'apollo-cache-inmemory'
+import Head from 'next/head';
+import { ApolloProvider } from '@apollo/react-hooks';
+import { ApolloClient } from 'apollo-client';
+import { InMemoryCache } from 'apollo-cache-inmemory';
 import { createHttpLink } from 'apollo-link-http';
 import { setContext } from 'apollo-link-context';
-import fetch from 'isomorphic-unfetch'
-import { API_TOKEN } from '../config/token'
+import fetch from 'isomorphic-unfetch';
+import { API_TOKEN } from '../config/token';
 
 let apolloClient: null | any = null;
 
 const withApollo = (PageComponent: any, { ssr = true } = {}) => {
     const WithApollo = ({ apolloClient, apolloState, ...pageProps }: any) => {
-        const client = apolloClient || initApolloClient(apolloState)
+        const client = apolloClient || initApolloClient(apolloState);
         return (
             <ApolloProvider client={client}>
                 <PageComponent {...pageProps} />
             </ApolloProvider>
-        )
-    }
+        );
+    };
 
     // Set the correct displayName in development
     if (process.env.NODE_ENV !== 'production') {
@@ -51,7 +51,7 @@ const withApollo = (PageComponent: any, { ssr = true } = {}) => {
                 if (ssr) {
                     try {
                         // Run all GraphQL queries
-                        const { getDataFromTree } = await import('@apollo/react-ssr')
+                        const { getDataFromTree } = await import('@apollo/react-ssr');
                         await getDataFromTree(
                             <AppTree
                                 pageProps={{
@@ -59,7 +59,7 @@ const withApollo = (PageComponent: any, { ssr = true } = {}) => {
                                     apolloClient
                                 }}
                             />
-                        )
+                        );
                     } catch (error) {
                         // Prevent Apollo Client GraphQL errors from crashing SSR.
                         // Handle them in components via the data.error prop:
@@ -80,26 +80,26 @@ const withApollo = (PageComponent: any, { ssr = true } = {}) => {
                 ...pageProps,
                 apolloState
             };
-        }
+        };
     }
 
     return WithApollo;
-}
+};
 
 const initApolloClient = (initialState: any) => {
     // Make sure to create a new client for every server-side request so that data
     // isn't shared between connections (which would be bad)
     if (typeof window === 'undefined') {
-        return createApolloClient(initialState)
+        return createApolloClient(initialState);
     }
 
     // Reuse client on the client-side
     if (!apolloClient) {
-        apolloClient = createApolloClient(initialState)
+        apolloClient = createApolloClient(initialState);
     }
 
-    return apolloClient
-}
+    return apolloClient;
+};
 
 const authLink = setContext((_, { headers }) => {
     return {
@@ -122,7 +122,7 @@ const createApolloClient = (initialState = {}) => {
         ssrMode: typeof window === 'undefined', // Disables forceFetch on the server (so queries are only run once)
         link: authLink.concat(httpLink),
         cache: new InMemoryCache().restore(initialState)
-    })
-}
+    });
+};
 
 export default withApollo;
